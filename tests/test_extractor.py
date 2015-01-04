@@ -58,6 +58,16 @@ class TestExtractor(unittest.TestCase):
         self.assertEqual(2, len(e.places))
         self.assertIn(u'São Paulo', e.places)
         self.assertIn(u'Brazil', e.places)
+
+        text6 = u""" There is a city called Sao Paulo in Brazil."""
+        e = Extractor(text=text6)
+        e.find_entities()
+ 
+        self.assertEqual(2, len(e.places))
+        self.assertIn(u'Sao Paulo', e.places)
+        self.assertIn(u'Brazil', e.places)
+         
+
          
 #     def testSaoPauloPT(self):
 #         # Portuguese, unicode and two words
